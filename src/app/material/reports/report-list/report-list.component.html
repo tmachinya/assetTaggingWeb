@@ -1,0 +1,36 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container bootstrap snippet">
+  <div class="row">
+    <div class="col-md-10 pt-2 pb-3">
+      <ul class="list-listings">
+        <li class="" *ngFor="let asset of history">
+          <div class="listing-image">
+            <img src="assets/asset.jpg" style="width: 300px;height: 150px" class="img-responsive" alt="">
+          </div>
+          <div class="listing-body">
+            <h3>
+              <button  mat-stroked-button
+                       color="primary"
+                       style="width : 12em"
+                       class="left-button">
+                Asset Number:
+                {{asset.number}}
+              </button>
+            </h3>
+            <p>
+              This {{asset.name}} has been revalued under the conditions stated bellow. If no revaluation has been done, nothing will be visible there
+            </p>
+            <div class="meta-info">
+              <ul>
+                <li><i class="fa fa-calendar"></i> <small>{{asset.created_at}}</small></li>
+                <li><i class="fa fa-user"></i> <small>By <a href="#">{{asset.by}}</a></small></li>
+                <li> <small>Cost <i class="fa fa-dollar"></i><a href="#">{{asset.purchase_value}}</a></small></li>
+                <li> <small>Revaluation <i class="fa fa-dollar"></i> <a href="#">{{asset.value}}</a></small></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
