@@ -10,11 +10,11 @@ export class ProductService {
 
   formProduct: FormGroup = new FormGroup({
     id: new FormControl(''),
-    name: new FormControl('', Validators.required),
-    date_received: new FormControl('', Validators.required),
-    category: new FormControl('', Validators.required),
-    number: new FormControl('', Validators.required),
-    user: new FormControl('', Validators.required),
+    name: new FormControl(''),
+    date_received: new FormControl(''),
+    category: new FormControl(''),
+    number: new FormControl(''),
+    user: new FormControl(''),
     description: new FormControl(''),
     purchase_value: new FormControl(''),
     location: new FormControl(''),
