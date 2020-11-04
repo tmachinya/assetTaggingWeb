@@ -12,6 +12,13 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class SearchComponent implements OnInit {
   categories: string [];
    assets: string [];
+   reports: any [ ] =
+     [
+       {id:1,name:'depreciation'},
+       {id:2,name:'revaluation'},
+       {id:3,name:'additions'} ,
+       {id:4,name:'disposals'}
+     ]
   constructor(
     private Jarvis: JarvisService,
     public service: FilterService,
@@ -32,9 +39,21 @@ export class SearchComponent implements OnInit {
 
   onSubmit()
   {
-    // console.log(this.service.formFilter.value)
     let data: any = this.service.formFilter.value
-    this.router.navigate(['/dashboard/search/1'], {queryParams: {data: JSON.stringify(data)}, skipLocationChange: true})
+    if(this.service.formFilter.value.report=='depreciation'){
+      this.router.navigate(['/dashboard/accumulatedDpn'], {queryParams: {data: JSON.stringify(data)}, skipLocationChange: true})
+    }
+    if(this.service.formFilter.value.report=='revaluation'){
+      this.router.navigate(['/dashboard/revaluations'], {queryParams: {data: JSON.stringify(data)}, skipLocationChange: true})
+    }
+    if(this.service.formFilter.value.report=='additions'){
+      this.router.navigate(['/dashboard/additions'], {queryParams: {data: JSON.stringify(data)}, skipLocationChange: true})
+    }
+    if(this.service.formFilter.value.report=='disposals'){
+      console.log('disposals')
+    }
+
+
   }
   onClear() {
     this.service.formFilter.reset();

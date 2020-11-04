@@ -33,6 +33,8 @@ import { AdminListComponent } from './admins/admin-list/admin-list.component';
 import {ChampionService} from "./services/champion.service";
 import { RevaluingComponent } from './material/revaluing/revaluing.component';
 import { RevaluedAssetsComponent } from './material/revaluing/revalued-assets/revalued-assets.component';
+import { RecentListComponent } from './material/reports/recent-list/recent-list.component';
+import { RevaluateListComponent } from './material/reports/revaluate-list/revaluate-list.component';
 
 @NgModule({
     declarations: [
@@ -58,7 +60,9 @@ import { RevaluedAssetsComponent } from './material/revaluing/revalued-assets/re
         AdminComponent,
         AdminListComponent,
         RevaluingComponent,
-        RevaluedAssetsComponent
+        RevaluedAssetsComponent,
+        RecentListComponent,
+        RevaluateListComponent
     ],
     imports: [
         BrowserAnimationsModule,

@@ -1,18 +1,18 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {JarvisService} from "../../../services/jarvis.service";
-import {HttpErrorResponse} from "@angular/common/http";
-import {ExcelService} from "../../../services/excel.service";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatSort} from "@angular/material/sort";
 import {MatPaginator} from "@angular/material/paginator";
+import {ActivatedRoute, Router} from "@angular/router";
+import {JarvisService} from "../../../services/jarvis.service";
+import {ExcelService} from "../../../services/excel.service";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
-  selector: 'app-searched-assets',
-  templateUrl: './searched-assets.component.html',
+  selector: 'app-revaluate-list',
+  templateUrl: './revaluate-list.component.html',
   styleUrls: ['../../../admins/admin-list/admin-list.component.css']
 })
-export class SearchedAssetsComponent implements OnInit {
+export class RevaluateListComponent implements OnInit {
   assets: string [];
   infor: any;
   count: any;
@@ -20,7 +20,7 @@ export class SearchedAssetsComponent implements OnInit {
   var2: number= 0.0
   var3: number=0.0
   listData: MatTableDataSource<any>;
-  displayedColumns: string[] = ['name','description','date_received','category','number','location','purchase_value','sum','dpnNow','NBV'];
+  displayedColumns: string[] = ['asset_number','name','description','value','cost','variance'];
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   searchKey: string;
@@ -35,7 +35,7 @@ export class SearchedAssetsComponent implements OnInit {
   ngOnInit() {
     this.route.queryParams.subscribe((params)=>{
         this.infor = JSON.parse(params.data)
-        this.Jarvis.searchAssets(this.infor).subscribe(data => {
+        this.Jarvis.allRevaluation(this.infor).subscribe(data => {
             this.assets = data as string [];
             this.listData = new MatTableDataSource(this.assets);
             this.listData.sort = this.sort;

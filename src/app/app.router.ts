@@ -22,6 +22,8 @@ import {ReportListComponent} from "./material/reports/report-list/report-list.co
 import {AdminListComponent} from "./admins/admin-list/admin-list.component";
 import {RevaluingComponent} from "./material/revaluing/revaluing.component";
 import {RevaluedAssetsComponent} from "./material/revaluing/revalued-assets/revalued-assets.component";
+import {RecentListComponent} from "./material/reports/recent-list/recent-list.component";
+import {RevaluateListComponent} from "./material/reports/revaluate-list/revaluate-list.component";
 
 
 const appRoutes: Routes = [
@@ -35,11 +37,10 @@ const appRoutes: Routes = [
      { path: 'report', component: DepreciationComponent },
      { path: 'history', component: ReportListComponent },
      { path: 'administration', component: AdminListComponent },
-     { path: 'search', component: SearchComponent,
-       children: [
-         { path: ':id', component: SearchedAssetsComponent },
-       ],
-     },
+     { path: 'search', component: SearchComponent},
+     { path: 'revaluations', component: RevaluateListComponent},
+     { path: 'additions', component: RecentListComponent},
+     { path: 'accumulatedDpn', component: SearchedAssetsComponent},
      { path: 'revalue', component: RevaluingComponent,
        children: [
          { path: ':id', component: RevaluedAssetsComponent },

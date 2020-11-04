@@ -2,19 +2,19 @@
 <div fxFill class="container" fxLayout="column" style="padding-left: 8px; padding-right: 8px;">
 
   <div class="topbar" fxLayout="row" fxLayoutAlign="start center">
-    <h3 class="color-blue-a700">Depreciation</h3>
+    <h3 class="color-blue-a700">Asset Additions</h3>
 
   </div>
 
   <div class="details" fxLayout="row" fxFlex>
 
     <div fxLayout="column" style="margin-right: 8px;">
-      <div class="bg-blue-grey-200 first-letter" fxLayout="row" fxLayoutAlign="center center"><span class="color-white">{{ 'Depreciation' | slice:0:1 }}</span></div>
+      <div class="bg-blue-grey-200 first-letter" fxLayout="row" fxLayoutAlign="center center"><span class="color-white">{{ 'Assets' | slice:0:1 }}</span></div>
     </div>
 
     <div fxLayout="column" fxFlex fxLayoutGap="8px">
-      <span class="color-blue-grey-800 name">All Depreciation for assets</span>
-      <span class="color-blue-grey-500 description">These is a summary of depreciated assets over selected time</span>
+      <span class="color-blue-grey-800 name">All Assets recently added</span>
+      <span class="color-blue-grey-500 description">These are all assets purchased over selected time</span>
       <!--
       -->
       <div class="mat-elevation-z8">
@@ -52,7 +52,7 @@
         <div class="mat-elevation-z8">
           <mat-table #matTable [dataSource]="listData" matSort>
             <ng-container matColumnDef="name">
-              <mat-header-cell *matHeaderCellDef mat-sort-header>Asset Name</mat-header-cell>
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Product Name</mat-header-cell>
               <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
             </ng-container>
 
@@ -120,28 +120,19 @@
               <mat-header-cell *matHeaderCellDef mat-sort-header>Date Commissioned</mat-header-cell>
               <mat-cell *matCellDef="let element">{{element.date_commissioned}}</mat-cell>
             </ng-container>
-            <ng-container matColumnDef="depreciation">
-              <mat-header-cell *matHeaderCellDef mat-sort-header>Depreciation</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.depreciation}}</mat-cell>
-            </ng-container>
-            <ng-container matColumnDef="sum">
-              <mat-header-cell *matHeaderCellDef mat-sort-header>Accumulated Depreciation</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.sum}}</mat-cell>
-            </ng-container>
-            <ng-container matColumnDef="dpnNow">
-              <mat-header-cell *matHeaderCellDef mat-sort-header>Depreciation</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.dpnNow}}</mat-cell>
-            </ng-container>
-            <ng-container matColumnDef="NBV">
-              <mat-header-cell *matHeaderCellDef mat-sort-header>Net Book Value</mat-header-cell>
-              <mat-cell *matCellDef="let element">{{element.NBV}}</mat-cell>
-            </ng-container>
 
 
             <ng-container matColumnDef="actions">
               <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
               <mat-cell *matCellDef="let row">
                 <button mat-icon-button (click)="onEdit(row)"><mat-icon>launch</mat-icon></button>
+                <button mat-icon-button color="warn" (click)="onDelete(row.id)"><mat-icon>delete_outline</mat-icon></button>
+              </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="history">
+              <mat-header-cell *matHeaderCellDef>History</mat-header-cell>
+              <mat-cell *matCellDef="let row">
+                <button mat-icon-button color="primary" (click)="history(row)"><mat-icon>launch</mat-icon></button>
               </mat-cell>
             </ng-container>
 
@@ -178,7 +169,9 @@
 
 
 
-      </div>
-
-  </div>
 </div>
+    </div>
+
+    </div>
+  </div>
+
