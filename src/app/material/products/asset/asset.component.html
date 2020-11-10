@@ -48,17 +48,15 @@
           <mat-error>This is a mandatory field</mat-error>
         </mat-form-field>
 
-        <mat-form-field>
-          <input formControlName="location" matInput placeholder="Location">
-          <mat-error>This is a mandatory field</mat-error>
-        </mat-form-field>
-
-
-
       </div>
     </mat-grid-tile>
     <mat-grid-tile>
       <div class="controles-container">
+
+        <mat-form-field>
+          <input formControlName="location" matInput placeholder="Location">
+          <mat-error>This is a mandatory field</mat-error>
+        </mat-form-field>
 
         <mat-form-field>
           <input formControlName="project" matInput placeholder="Project">
@@ -85,11 +83,9 @@
           <mat-error>This is a mandatory field</mat-error>
         </mat-form-field>
 
-        <mat-form-field>
-          <input formControlName="date_commissioned" matInput [matDatepicker]="picker1" placeholder="Date Commissioned">
-          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-          <mat-datepicker #picker1></mat-datepicker>
-        </mat-form-field>
+
+          <input hidden formControlName="date_commissioned" matInput [matDatepicker]="picker1" placeholder="Date Commissioned">
+
         <mat-form-field>
           <input formControlName="licence_plate" matInput placeholder="Revaluation">
           <mat-error>This is a mandatory field</mat-error>
