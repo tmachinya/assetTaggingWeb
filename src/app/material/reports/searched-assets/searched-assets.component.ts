@@ -53,6 +53,7 @@ export class SearchedAssetsComponent implements OnInit {
     console.log(this.assets)
   }
   exportAsXLSX() {
+    this.excel.exportAsExcelFile(this.assets, 'Assets');
   }
   onSearchClear() {
     this.searchKey = '';

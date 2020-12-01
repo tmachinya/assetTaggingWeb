@@ -30,7 +30,6 @@ export class ReportListComponent implements OnInit {
       this.infor = JSON.parse(params.data)
         this.Jarvis.assetHistory(this.infor).subscribe(data => {
             this.history = data as string [];
-            console.log(this.history)
           },
           (err: HttpErrorResponse) => {
             console.log (err.message);
@@ -38,6 +37,9 @@ export class ReportListComponent implements OnInit {
       }
 
     )
+  }
+  exportAsXLSX() {
+    this.excel.exportAsExcelFile(this.history, 'Assets');
   }
 
 }

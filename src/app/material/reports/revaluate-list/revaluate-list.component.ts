@@ -50,9 +50,9 @@ export class RevaluateListComponent implements OnInit {
   }
 
   calculation(){
-    console.log(this.assets)
   }
   exportAsXLSX() {
+    this.excel.exportAsExcelFile(this.assets, 'Assets');
   }
   onSearchClear() {
     this.searchKey = '';
